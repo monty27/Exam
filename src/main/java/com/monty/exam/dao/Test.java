@@ -2,6 +2,9 @@ package com.monty.exam.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Test {
 	private int id;
 	private Customer customer;
@@ -9,7 +12,10 @@ public class Test {
 	private int[] answers = new int[10];
 	private int score;
 	
-
+	public Test(){
+		
+	}
+	
 	public Test(int id, Customer customer, List<Question> questions, int[] answers, int score) {
 		super();
 		this.id = id;

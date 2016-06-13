@@ -1,5 +1,8 @@
 package com.monty.exam.dao;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Question {
 	private int id;
 	private String question;
@@ -9,6 +12,11 @@ public class Question {
 	private int optionD;
 	private int answer;
 	private int difficulty;
+	
+	public Question(){
+		
+	}
+	
 	public Question(int id, String question, int optionA, int optionB, int optionC, int optionD, int answer,
 			int difficulty) {
 		super();

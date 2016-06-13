@@ -6,6 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class CustomerDAOJDBCImpl extends BaseDAO implements CustomerDAO {
 
 	@Override
@@ -22,6 +25,7 @@ public class CustomerDAOJDBCImpl extends BaseDAO implements CustomerDAO {
 			con = getConnection();
 			String sql = "INSERT INTO CUSTOMERS (NAME, ADDRESS, SSN, USERNAME, PASSWORD) VALUES (?, ?, ?, ?, ?)";
 			st = con.prepareStatement(sql);
+			System.out.println(sql);
 			st.setString(1, customer.getName());
 			st.setString(2, customer.getAddress());
 			st.setInt(3, customer.getSsn());
@@ -30,7 +34,7 @@ public class CustomerDAOJDBCImpl extends BaseDAO implements CustomerDAO {
 			st.executeUpdate();
 			
 		}catch(SQLException ex){
-			
+			ex.printStackTrace();
 		}finally{
 			closeResources(null,st,con);
 		}
@@ -53,7 +57,7 @@ public class CustomerDAOJDBCImpl extends BaseDAO implements CustomerDAO {
 			st.executeUpdate();
 			
 		}catch(SQLException ex){
-			
+			ex.printStackTrace();
 		}finally{
 			closeResources(null,st,con);
 		}
@@ -72,7 +76,7 @@ public class CustomerDAOJDBCImpl extends BaseDAO implements CustomerDAO {
 			st.executeUpdate();
 			
 		}catch(SQLException ex){
-			
+			ex.printStackTrace();
 		}finally{
 			closeResources(null,st,con);
 		}
@@ -101,7 +105,7 @@ public class CustomerDAOJDBCImpl extends BaseDAO implements CustomerDAO {
 				customer = new Customer(id,name,address,ssn,username,password);
 			}
 		}catch(SQLException ex){
-			
+			ex.printStackTrace();
 		}finally{
 			closeResources(null,st,con);
 		}
