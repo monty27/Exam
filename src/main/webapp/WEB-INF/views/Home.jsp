@@ -9,8 +9,8 @@
 </head>
 <body>
 	<h3> Welcome to online exam portal, <c:out value='${loggedInCustomer.name}'/> </h3>
-	<p><a href = ""> Click here</a> If you want to take an exam.</p>
-	<p><a href = ""> Click here</a> To view all the test taken by you.</p>
+	<p><a href = "/exam/InExam"> Click here</a> If you want to take an exam.</p>
+	<p><a href = ""> Click here</a> To view all the exams taken by you.</p>
 	
 	<form action ="/exam/Home" method = "post">
 		<input type = "hidden" value = "" name = "username"/>

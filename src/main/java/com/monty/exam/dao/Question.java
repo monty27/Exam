@@ -6,10 +6,10 @@ import org.springframework.stereotype.Component;
 public class Question {
 	private int id;
 	private String question;
-	private int optionA;
-	private int optionB;
-	private int optionC;
-	private int optionD;
+	private String optionA;
+	private String optionB;
+	private String optionC;
+	private String optionD;
 	private int answer;
 	private int difficulty;
 	
@@ -17,7 +17,7 @@ public class Question {
 		
 	}
 	
-	public Question(int id, String question, int optionA, int optionB, int optionC, int optionD, int answer,
+	public Question(int id, String question, String optionA, String optionB, String optionC, String optionD, int answer,
 			int difficulty) {
 		super();
 		this.id = id;
@@ -35,30 +35,39 @@ public class Question {
 	public void setQuestion(String question) {
 		this.question = question;
 	}
-	public int getOptionA() {
+	
+	public String getOptionA() {
 		return optionA;
 	}
-	public void setOptionA(int optionA) {
+
+	public void setOptionA(String optionA) {
 		this.optionA = optionA;
 	}
-	public int getOptionB() {
+
+	public String getOptionB() {
 		return optionB;
 	}
-	public void setOptionB(int optionB) {
+
+	public void setOptionB(String optionB) {
 		this.optionB = optionB;
 	}
-	public int getOptionC() {
+
+	public String getOptionC() {
 		return optionC;
 	}
-	public void setOptionC(int optionC) {
+
+	public void setOptionC(String optionC) {
 		this.optionC = optionC;
 	}
-	public int getOptionD() {
+
+	public String getOptionD() {
 		return optionD;
 	}
-	public void setOptionD(int optionD) {
+
+	public void setOptionD(String optionD) {
 		this.optionD = optionD;
 	}
+
 	public int getAnswer() {
 		return answer;
 	}

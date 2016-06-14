@@ -16,7 +16,6 @@ public class TestDAOJDBCImpl extends BaseDAO implements TestDAO {
 	public void addTest(Test test) {
 		Connection con = null;
 		PreparedStatement st = null;
-		//PreparedStatement st2 = null;
 		try{
 			con = getConnection();
 			String sql = "INSERT INTO TESTS (CUSTOMER_ID, SCORE) VALUES (?, ?)";
@@ -30,7 +29,7 @@ public class TestDAOJDBCImpl extends BaseDAO implements TestDAO {
 				PreparedStatement st2 = con.prepareStatement(sql);
 				st2.setInt(1, test.getId());
 				st2.setInt(2, question.getId());
-				st2.setInt(2, test.getAnswers()[count++]);
+				st2.setInt(2, test.getAnswers().get(count++));
 				st2.executeUpdate();
 				st2.close();
 			}
@@ -63,10 +62,9 @@ public class TestDAOJDBCImpl extends BaseDAO implements TestDAO {
 				st2.setInt(1, test_id);
 				rs2 = st2.executeQuery();
 				List<Question> questions = new ArrayList<Question>();
-				int[] answers = new int[10];
-				int count = 0;
+				List<Integer> answers = new ArrayList<Integer>();
 				while(rs2.next()){
-					answers[count++] = rs2.getInt("ANSWER");
+					answers.add(rs2.getInt("ANSWER"));
 					QuestionDAOJDBCImpl q = new QuestionDAOJDBCImpl();
 					questions.add(q.getQuestionByID(rs2.getInt("QUESTION_ID")));
 				}
