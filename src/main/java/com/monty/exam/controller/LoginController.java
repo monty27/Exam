@@ -17,6 +17,12 @@ public class LoginController {
 	@Autowired
 	private CustomerDAO c;
 	
+	
+	@RequestMapping("/")
+	public String homePage(){
+		return "redirect:Home";
+	}
+	
 	@RequestMapping("/Home")
 	public String emptyForm(HttpSession session){
 		if(session.getAttribute("loggedInCustomer") == null){

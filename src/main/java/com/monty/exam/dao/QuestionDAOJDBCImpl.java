@@ -161,12 +161,11 @@ public class QuestionDAOJDBCImpl extends BaseDAO implements QuestionDAO {
 				int index = 1 + (int)(Math.random() * questions.size());
 				return questions.get(index);
 			}else{
-				int j=0;
 				for(Question q : testQuestions){
 					questions = removeQuestionFromQuestions(questions,q);
 				}
-				int index = 1 + (int)(Math.random() * questions.size());
-				return questions.get(index-1);
+				int index = (int)(Math.random() * questions.size());
+				return questions.get(index);
 			}
 
 		} catch (SQLException ex) {

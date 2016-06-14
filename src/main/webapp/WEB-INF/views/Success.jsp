@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Exam finished</title>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 <body>
-	<H3> Hello <c:out value='${loggedInCustomer.name}'/>  , your score is, <c:out value='${score}'/> </H3>
+	<H3> Hello <c:out value='${loggedInCustomer.name}'/> congrats! your score is, <c:out value='${score}'/> </H3>
 	<h4>Please <a href = "/exam/Home">click here</a> for your home page</h4>
 </body>
 </html>

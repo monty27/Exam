@@ -94,7 +94,9 @@ public class ExamController {
 				return "redirect:Home";
 			} else {
 				List<Question> questions = (ArrayList<Question>) session.getAttribute("testQuestions");
+				System.out.println(questions);
 				List<Integer> answers = (ArrayList<Integer>) session.getAttribute("answers");
+				System.out.println(answers);
 				int score = (int) session.getAttribute("score");
 				Customer customer = (Customer) session.getAttribute("loggedInCustomer");
 				t.addTest(new Test(1, customer, questions, answers, score));
