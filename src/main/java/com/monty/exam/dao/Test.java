@@ -2,15 +2,21 @@ package com.monty.exam.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Test {
 	private int id;
 	private Customer customer;
 	private List<Question> questions;
-	private int[] answers = new int[10];
+	private  List<Integer> answers;
 	private int score;
 	
-
-	public Test(int id, Customer customer, List<Question> questions, int[] answers, int score) {
+	public Test(){
+		
+	}
+	
+	public Test(int id, Customer customer, List<Question> questions, List<Integer> answers, int score) {
 		super();
 		this.id = id;
 		this.customer = customer;
@@ -43,11 +49,11 @@ public class Test {
 		this.questions = questions;
 	}
 
-	public int[] getAnswers() {
+	public List<Integer> getAnswers() {
 		return answers;
 	}
 
-	public void setAnswers(int[] answers) {
+	public void setAnswers(List<Integer> answers) {
 		this.answers = answers;
 	}
 	

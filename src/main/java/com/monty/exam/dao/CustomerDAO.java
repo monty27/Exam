@@ -8,4 +8,5 @@ public interface CustomerDAO {
 	void updateCustomer(Customer customer);
 	void deleteCustomer(Customer customer);
 	Customer getCustomerByUsername(String username);
+	Customer getCustomerByID(int cust_id);
 }

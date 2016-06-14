@@ -1,5 +1,8 @@
 package com.monty.exam.dao;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Customer {
 	private int id;
 	private String name;
@@ -7,6 +10,9 @@ public class Customer {
 	private int ssn;
 	private String username;
 	private String password;
+	
+	public Customer() {
+	}
 	
 	public Customer(int id, String name, String address, int ssn, String username, String password) {
 		super();
