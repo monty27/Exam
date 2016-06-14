@@ -4,18 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class CustomerDAOJDBCImpl extends BaseDAO implements CustomerDAO {
-
-	@Override
-	public List<Customer> getALLCustomers() {
-
-		return null;
-	}
 
 	@Override
 	public void createCustomer(Customer customer) {
@@ -107,20 +100,18 @@ public class CustomerDAOJDBCImpl extends BaseDAO implements CustomerDAO {
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		} finally {
-			closeResources(null, st, con);
+			closeResources(rs, st, con);
 		}
 
 		return customer;
 	}
 
 	@Override
-	public Customer getCustomerByID(int cust_id) {
-		Connection con = null;
+	public Customer getCustomerByID(Connection con, int cust_id) {
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		Customer customer = null;
 		try {
-			con = getConnection();
 			String sql = "SELECT * FROM CUSTOMERS WHERE ID = ?";
 			st = con.prepareStatement(sql);
 			st.setInt(1, cust_id);
@@ -137,7 +128,7 @@ public class CustomerDAOJDBCImpl extends BaseDAO implements CustomerDAO {
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		} finally {
-			closeResources(null, st, con);
+			closeResources(rs, st, null);
 		}
 
 		return customer;
